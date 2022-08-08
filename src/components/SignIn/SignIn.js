@@ -29,6 +29,10 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+  // const shoot = () => {
+  //   alert("Great Shot!");
+  // }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -81,8 +85,12 @@ export default function SignIn() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Button
+            <Button 
               type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href='https://vync8i3sof.execute-api.ap-southeast-2.amazonaws.com/marktest/markneoraddb';
+              }}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
