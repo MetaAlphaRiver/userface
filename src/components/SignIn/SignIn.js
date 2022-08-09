@@ -38,21 +38,21 @@ export default function SignIn() {
     const data = new FormData(event.currentTarget);
     let username = data.get('email')
     let password = data.get('password')
-    fetch('https://v1vl79hmb8.execute-api.ap-southeast-2.amazonaws.com/marktest/neoradbask',{
+    fetch('https://v1vl79hmb8.execute-api.ap-southeast-2.amazonaws.com/marktest/neoradbask', {
       method: 'POST',
       headers: {
-        'Content-Type':'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username:username,
+        username: username,
         password: password,
       }),
-      mode:'cors',
     }).then((response) => {
-      return response.json()
-    }).then((response) => {
-      alert(JSON.stringify(response.body));
-    })    
+      return response.text()
+    }).then((res) => {
+      console.log(res, 'response data');
+      alert(JSON.stringify(res));
+    })
   };
 
   return (
