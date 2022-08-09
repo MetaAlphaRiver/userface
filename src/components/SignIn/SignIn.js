@@ -41,7 +41,8 @@ export default function SignIn() {
     fetch('https://v1vl79hmb8.execute-api.ap-southeast-2.amazonaws.com/marktest/neoradbask',{
       method: 'POST',
       headers: {
-        'Content-Type':'application/json'
+        'Content-Type':'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({
         username:username,
@@ -132,3 +133,4 @@ export default function SignIn() {
 
 
 
+// https://v1vl79hmb8.execute-api.ap-southeast-2.amazonaws.com/marktest/neoradb
