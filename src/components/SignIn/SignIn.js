@@ -36,10 +36,23 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    let username = data.get('email')
+    let password = data.get('password')
+    fetch('https://v1vl79hmb8.execute-api.ap-southeast-2.amazonaws.com/marktest/neoradbask',{
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({
+        username:username,
+        password: password,
+      }),
+      mode:'cors',
+    }).then((response) => {
+      return response.json()
+    }).then((response) => {
+      alert(JSON.stringify(response.body));
+    })    
   };
 
   return (
@@ -88,8 +101,8 @@ export default function SignIn() {
             <Button 
               type="submit"
               onClick={(e) => {
-                e.preventDefault();
-                window.location.href='https://vync8i3sof.execute-api.ap-southeast-2.amazonaws.com/marktest/markneoraddb';
+                // e.preventDefault();
+                // window.location.href='https://vync8i3sof.execute-api.ap-southeast-2.amazonaws.com/marktest/markneoraddb';
               }}
               fullWidth
               variant="contained"
@@ -116,5 +129,6 @@ export default function SignIn() {
     </ThemeProvider>
   );
 }
+
 
 
