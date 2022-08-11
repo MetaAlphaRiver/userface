@@ -1,4 +1,6 @@
 import * as React from 'react';
+// import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,6 +14,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+// import Wellcome from './Welcome';
 
 function Copyright(props) {
   return (
@@ -32,7 +36,7 @@ export default function SignIn() {
   // const shoot = () => {
   //   alert("Great Shot!");
   // }
-
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -48,10 +52,15 @@ export default function SignIn() {
         password: password,
       }),
     }).then((response) => {
-      return response.text()
+      return response.json()
     }).then((res) => {
-      console.log(res, 'response data');
-      alert(JSON.stringify(res));
+      if (res.code === 2066) {
+        navigate("/welcome", { replace: true });
+      } else if (res.code === 2067) {
+        navigate("/register", { replace: true });
+      } else {
+        alert(res.msg);
+      }
     })
   };
 

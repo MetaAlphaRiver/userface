@@ -1,0 +1,39 @@
+.page {
+    height: 100vh;
+    background: url(../../../public/wel.png) center center no-repeat;
+    background-size: contain;
+    flex-direction: column;
+    display: flex;
+}
+
+.header {
+    height: 30px;
+    text-align: left;
+    padding: 30px 0 0 0px;
+}
+
+.main {
+    flex: 1;
+}
+
+.footer {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn {
+    flex: 1;
+    color: #fff;
+    padding: 4px 0;
+    height: 15px;
+    margin: 0 20px;
+    display: inline-block;
+    background-color: #1976d2;
+    font-size: 12px;
+
+}
+
+.btn2 {
+    margin-right: 30px;
+}
