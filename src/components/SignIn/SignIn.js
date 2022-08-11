@@ -40,7 +40,7 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    let username = data.get('email')
+    let email = data.get('email')
     let password = data.get('password')
     fetch('https://v1vl79hmb8.execute-api.ap-southeast-2.amazonaws.com/marktest/neoradbask', {
       method: 'POST',
@@ -48,7 +48,7 @@ export default function SignIn() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username: username,
+        email: email,
         password: password,
       }),
     }).then((response) => {

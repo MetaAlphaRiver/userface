@@ -2,7 +2,7 @@ import * as React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import ProTip from '../../ProTip';
+// import ProTip from '../../ProTip';
 import SignUp from '../SignUp/SignUp';
 
 const Register = () => {
@@ -13,7 +13,6 @@ const Register = () => {
                     Wellcome to chat with Leora
                 <SignUp />
                 </Typography>
-                <ProTip />
             </Box>
         </Container>
     );
